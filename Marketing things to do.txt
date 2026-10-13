@@ -1,0 +1,48 @@
+-make the first ad to be a Aries AI face explaining what the app can do, not only the RedTeam feature
+----------------------
+-so just look for companies that are failing and make a better version and release it fast even if its not fully finished
+Thats later’s problem, most companies are 90% hype and 10% delivery
+----------------------
+To move to the final version later, run npm install firebase-functions@latest in the functions folder, then deploy and test.
+----------------------
+When a user reports a problem, ask for the error id and run firebase functions:log | grep a3f91c8e2b04 to get the full stack. Consider surfacing the id in the modal as small grey text — it costs nothing and makes support dramatically easier.
+----------------------
+Don't upload functions\.env, any service account .json key, or the recovery codes file. Those contain secrets.
+----------------------
+To see emails in firebase database, click filter and write "email" and ok
+Filters every entry by email so I see them and can find and select them
+---------------------
+How to clear waitlist
+Go in firebase DB and change metadata waitlist count var to 0
+----------
+-TikTok offers up to $5k in AD credit
+-customer acquisition 
+-ask Claude to find clients for me
+-ask claude to find investors that actually respond to messages online
+-blogs
+-news sites
+-darknet forums
+-make a patreon 
+-make a linkedin and upload projects, even ideas 
+-system to share my website to 100 other people to receive a 6-12 month subscription
+something like that
+-youtube channels
+-fb, insta, X, TikTok, etc.
+-put the agent on other platforms that host AI agents
+-put it on platforms that gamble if the project will succed or not
+-built it in public forums, X, etc
+-sa gasesc banci si contactez si institutii de investitie in alte tari
+-ask AI drive traffic to website methods
+-use also small social media platforms
+-use also small youtube creators
+-contact every bank
+-contact everyone
+-contact business incubators
+
+Embrace, Extend, and Extinguish.
+
+
+-write down which investors, journalists and youtube channels, etc respond
+those are the single ones that receive energy to continue their work
+if they don't respond online to other people, they lose all the power to continue to have success
+IF they don't respond online, they don't exist

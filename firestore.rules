@@ -1,0 +1,75 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // =================================================================
+    // HELPERS
+    // =================================================================
+
+
+    // =================================================================
+    // USER PROFILES
+    // =================================================================
+	// Read is denied outright: everything that touches this collection goes
+    // through the `api` Cloud Function (Admin SDK, bypasses rules). The doc
+    // holds twoFASecret, so no client should ever be able to fetch it.
+    match /users/{uid} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // =================================================================
+    // BACKEND-ONLY COLLECTIONS
+    // =================================================================
+    // Every one of these is reached through the `api` Cloud Function, which
+    // uses the Admin SDK and bypasses rules entirely. Denying the client
+    // costs nothing and removes the collection as an attack surface.
+
+    match /waitlist/{doc} {
+      allow read, write: if false;   // was `read: if true` — emails were public
+    }
+
+    match /visitors/{doc} {
+      allow read, write: if false;
+    }
+
+    match /ai_usage/{doc} {
+      allow read, write: if false;   // client-writable quota counters = no quota
+    }
+
+    match /ai_conversations/{doc} {
+      allow read, write: if false;
+    }
+
+    match /rate_limits/{doc} {
+      allow read, write: if false;
+    }
+
+    match /security_logs/{doc} {
+      allow read, write: if false;   // an attacker must never read or edit these
+    }
+
+    // =================================================================
+    // PUBLIC COUNTERS
+    // =================================================================
+    // Scoped to the single document the landing page displays. Do not widen
+    // this to /metadata/{doc} — future documents in this collection would
+    // inherit public read without anyone noticing.
+    match /metadata/stats {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // =================================================================
+    // CATCH-ALL
+    // =================================================================
+    // Documentary only. Unmatched paths are already denied by default, and a
+    // deny here does NOT override an allow above — Firestore ORs all matching
+    // rules together. Its job is to make "new collection = no access until
+    // someone adds a rule" obvious to whoever reads this next.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

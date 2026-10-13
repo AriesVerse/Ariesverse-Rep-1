@@ -1,0 +1,309 @@
+// =========================================
+// CONFIGURATION
+// =========================================
+const PROJECT_ID = "aries-money-blueprint-30125";
+const FIRESTORE_URL = "https://firestore.googleapis.com/v1/projects/" + PROJECT_ID + "/databases/(default)/documents";
+
+// =========================================
+// MAIN ENTRY POINT
+// =========================================
+function doPost(e) {
+  try {
+    const data = JSON.parse((e.postData && e.postData.contents) || "{}");
+    const action = String(data.action || "");
+    
+    // 1. Handle Visit Tracking
+    if (action === "visit") {
+      return handleVisit(data);
+    }
+    
+    // 2. Handle Waitlist Signup
+    if (action === "joinWaitlist" || action === "") {
+      return handleJoinWaitlist(data);
+    }
+    
+    // 3. Handle Firebase Token Verification (for protected routes)
+    if (action === "verifyFirebaseToken") {
+      return handleVerifyToken(data);
+    }
+    
+    return jsonResponse({ success: false, message: "Unknown action" });
+  } catch (err) {
+    return jsonResponse({ success: false, message: err.toString() });
+  }
+}
+
+// =========================================
+// VISITOR TRACKING (Firestore)
+// =========================================
+function handleVisit(data) {
+  const deviceId = String(data.deviceId || "");
+  if (!deviceId) return jsonResponse({ success: false, message: "No device ID" });
+  
+  // Check if visitor already exists
+  const existing = firestoreQuery("visitors", "deviceId", "==", deviceId);
+  if (existing.length > 0) {
+    return jsonResponse({ success: true });
+  }
+  
+  // Create new visitor document
+  firestoreCreate("visitors", {
+    deviceId: deviceId,
+    createdAt: new Date().toISOString()
+  });
+  
+  return jsonResponse({ success: true });
+}
+
+// =========================================
+// WAITLIST SIGNUP (Firestore)
+// =========================================
+function handleJoinWaitlist(data) {
+  // Anti-bot honeypot check
+  const website = String(data.website || "");
+  if (website) return jsonResponse({ success: false, message: "Bot detected" });
+  
+  // Time-on-page check (must wait 2.5 seconds)
+  if (Number(data.timeOnPage || 0) < 2500) {
+    return jsonResponse({ success: false, message: "Please wait..." });
+  }
+  
+  const email = normalizeEmail(data.email);
+  const deviceId = String(data.deviceId || "");
+  
+  if (!isValidEmail(email)) {
+    return jsonResponse({ success: false, message: "Enter a valid email" });
+  }
+  
+  // Check for duplicate email
+  const existingEmail = firestoreQuery("waitlist", "email", "==", email);
+  if (existingEmail.length > 0) {
+    return jsonResponse({ success: false, message: "Email already joined waitlist" });
+  }
+  
+  // Check for duplicate device
+  const existingDevice = firestoreQuery("waitlist", "deviceId", "==", deviceId);
+  if (existingDevice.length > 0) {
+    return jsonResponse({ success: false, message: "This device already joined" });
+  }
+  
+  // Add to waitlist
+  firestoreCreate("waitlist", {
+    email: email,
+    deviceId: deviceId,
+    createdAt: new Date().toISOString()
+  });
+  
+  return jsonResponse({ success: true, message: "Joined waitlist" });
+}
+
+// =========================================
+// FIREBASE TOKEN VERIFICATION
+// =========================================
+function handleVerifyToken(data) {
+  const idToken = String(data.idToken || "");
+  if (!idToken) {
+    return jsonResponse({ success: false, message: "Firebase ID token is required" });
+  }
+  
+  try {
+    const response = UrlFetchApp.fetch(
+      'https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=' + getFirebaseApiKey(),
+      {
+        method: 'post',
+        contentType: 'application/json',
+        payload: JSON.stringify({ idToken: idToken }),
+        muteHttpExceptions: true
+      }
+    );
+    
+    if (response.getResponseCode() !== 200) {
+      return jsonResponse({ success: false, message: "Invalid Firebase token" });
+    }
+    
+    const result = JSON.parse(response.getContentText());
+    if (!result.users || result.users.length === 0) {
+      return jsonResponse({ success: false, message: "Invalid Firebase token" });
+    }
+    
+    const user = result.users[0];
+    return jsonResponse({
+      success: true,
+      email: normalizeEmail(user.email),
+      uid: user.localId
+    });
+  } catch (err) {
+    return jsonResponse({ success: false, message: "Failed to verify token" });
+  }
+}
+
+// =========================================
+// FIRESTORE HELPER FUNCTIONS
+// =========================================
+function firestoreCreate(collection, data) {
+  const token = ScriptApp.getOAuthToken();
+  const url = FIRESTORE_URL + "/" + collection;
+  
+  const body = {
+    fields: convertToFirestoreFields(data)
+  };
+  
+  const response = UrlFetchApp.fetch(url, {
+    method: 'post',
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    },
+    payload: JSON.stringify(body),
+    muteHttpExceptions: true
+  });
+  
+  if (response.getResponseCode() !== 200) {
+    throw new Error("Firestore create failed: " + response.getContentText());
+  }
+  
+  return JSON.parse(response.getContentText());
+}
+
+function firestoreQuery(collection, field, operator, value) {
+  const token = ScriptApp.getOAuthToken();
+  const url = `${FIRESTORE_URL}:runQuery`;
+  
+  // Map common operators to Firestore REST API enum values
+  const operatorMap = {
+    "==": "EQUAL",
+    "!=": "NOT_EQUAL",
+    "<": "LESS_THAN",
+    "<=": "LESS_THAN_OR_EQUAL",
+    ">": "GREATER_THAN",
+    ">=": "GREATER_THAN_OR_EQUAL",
+    "in": "IN",
+    "array-contains": "ARRAY_CONTAINS"
+  };
+  
+  const firestoreOp = operatorMap[operator] || operator;
+  
+  const body = {
+    structuredQuery: {
+      from: [{ collectionId: collection }],
+      where: {
+        fieldFilter: {
+          field: { fieldPath: field },
+          op: firestoreOp,  // Use the mapped operator
+          value: convertToFirestoreValue(value)
+        }
+      },
+      limit: 1
+    }
+  };
+  
+  const response = UrlFetchApp.fetch(url, {
+    method: 'post',
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-Type': 'application/json'
+    },
+    payload: JSON.stringify(body),
+    muteHttpExceptions: true
+  });
+  
+  if (response.getResponseCode() !== 200) {
+    throw new Error("Firestore query failed: " + response.getContentText());
+  }
+  
+  const results = JSON.parse(response.getContentText());
+  return results
+    .filter(r => r.document)
+    .map(r => ({
+      id: r.document.name.split('/').pop(),
+      fields: convertFromFirestoreFields(r.document.fields)
+    }));
+}
+
+// =========================================
+// FIRESTORE DATA CONVERSION
+// =========================================
+function convertToFirestoreFields(obj) {
+  const fields = {};
+  for (const key in obj) {
+    fields[key] = convertToFirestoreValue(obj[key]);
+  }
+  return fields;
+}
+
+function convertToFirestoreValue(value) {
+  if (value === null || value === undefined) {
+    return { nullValue: null };
+  }
+  if (typeof value === 'string') {
+    return { stringValue: value };
+  }
+  if (typeof value === 'number') {
+    if (Number.isInteger(value)) {
+      return { integerValue: value.toString() };
+    }
+    return { doubleValue: value };
+  }
+  if (typeof value === 'boolean') {
+    return { booleanValue: value };
+  }
+  if (value instanceof Date) {
+    return { timestampValue: value.toISOString() };
+  }
+  if (Array.isArray(value)) {
+    return { arrayValue: { values: value.map(v => convertToFirestoreValue(v)) } };
+  }
+  if (typeof value === 'object') {
+    return { mapValue: { fields: convertToFirestoreFields(value) } };
+  }
+  return { stringValue: String(value) };
+}
+
+function convertFromFirestoreFields(fields) {
+  const obj = {};
+  for (const key in fields) {
+    obj[key] = convertFromFirestoreValue(fields[key]);
+  }
+  return obj;
+}
+
+function convertFromFirestoreValue(valueObj) {
+  if ('nullValue' in valueObj) return null;
+  if ('stringValue' in valueObj) return valueObj.stringValue;
+  if ('integerValue' in valueObj) return parseInt(valueObj.integerValue, 10);
+  if ('doubleValue' in valueObj) return valueObj.doubleValue;
+  if ('booleanValue' in valueObj) return valueObj.booleanValue;
+  if ('timestampValue' in valueObj) return new Date(valueObj.timestampValue);
+  if ('arrayValue' in valueObj) {
+    return (valueObj.arrayValue.values || []).map(v => convertFromFirestoreValue(v));
+  }
+  if ('mapValue' in valueObj) {
+    return convertFromFirestoreFields(valueObj.mapValue.fields || {});
+  }
+  return null;
+}
+
+// =========================================
+// UTILITY FUNCTIONS
+// =========================================
+function normalizeEmail(email) {
+  return String(email || "").trim().toLowerCase();
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function jsonResponse(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function getFirebaseApiKey() {
+  return "AIzaSyAB7-7VzXYrIGKt9chlCAKnJOuoU96Q5uE";
+}
+
+function authorizeEmailSetup() {
+  return "Firestore permissions ready. Project: " + PROJECT_ID;
+}

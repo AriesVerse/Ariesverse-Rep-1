@@ -1,0 +1,321 @@
+
+7/12/2026
+---------
+-test all 20 current sec features - OK
+-test if other buttons, beside waitlist, are spamable - OK
+-rate limit on AI possible prompts by a user, set max prompts to 10 and size to 2000 characters - OK
+-make AI chat max prompts possible to sync with each prompt by the user - OK
+-find a way to see emails joined in waitlist firebase database (with adding "email" as filter) - OK
+-change the AI chat counter for speed of sending messages from 5 seconds wait time to 3 - OK
+
+7/13/2026
+---------
+-remove "Bot detected" message on website - OK
+-remove auto login when registering a account - OK
+-Remove the flame emote from waitlist counter and put it inside a rectangle box - OK
+-reset the waitlist counter live after DB - OK
+-Move "Successfully joined the waitlist!" message on the middle of the screen and surround it with a cyan rectangle - OK
+-change from rectangle loading icon to reversed triangle - OK
+-Create the limit of prompts - OK
+
+7/14/2026
+---------
+-change when entering in waitlist a broken email message from white and yellow to cyan and text black - OK
+-change the color of the error messages from redish to cyan - OK
+-when introducing a wrong email in waitlist, change message color background rectangle from white to black and the text to cyan - OK
+
+7/15/2026
+---------
+-OWASP (Open Worldwide Application Security Project) is the global gold standard for web and AI security. They publish the "OWASP Top 10 for Large Language Models (LLMs)", which is a list of the most critical security risks for AI applications (like Prompt Injection, Data Leakage, and Jailbreaking). - OK
+-FIX THE WEBSITE FROM NOT WORKING AT ALL, no buttons, no AI message counter, no waitlist counter - OK
+-test OWASP - OK
+-change the messages AI counter, when on 3 or less, from redish to dark cyan - OK
+-make the signup with google button cyan, not white - OK
+-removing all messages from google sign in button but kept only the one that returns login error and made it as a modal- OK
+-change the "signed in as..." message from that font to the sci-fi one and align it to center of login/register box - OK
+-when I click the prompt message box in AI, its outlines turn from cyan to white, keep them to cyan - OK
+
+7/16/2026
+---------
+-also change the messages in login, register and reset password form, when sending just some text, or just example@, or example@example, - OK
+change the background color from white to cyan for those messages (like I did in waitlist)
+-remove the 3 boxes up the page and the 6 boxes under AI chat - OK
+-make login form invisible and visible only when user presses ACCOUNT button top right on the page - OK
+-center login form on the middle and make it 200px wider - OK
+-Fixed all modal z-index issues (login form on top of overlay, error modals on top of login form) - OK
+-Made login form wider (1080px) - OK
+-Fixed mobile ACCOUNT button visibility - OK
+-Fixed mobile "Not signed in" text positioning - OK
+-All auth validation errors now show in cyan modals - OK
+-make the login/register form errors to be shown on top of login form - OK
+-make the login/register form smaller and text smaller - OK
+-make the modals smaller and text also a little smaller - OK
+-arrange the UI, move AI chat up on the page, put login in a button as pop up menu, and keep the waitlist up, above AI chat window - OK
+-hackers can test if a email is registered in waitlist, by entering it in the input box and checking if it says "...already registered" - OK
+email enumeration hack fix - OK
+
+7/17/2026
+---------
+-add at least one number, one capital letter and one special character on password account creation - OK
+-set the timer/counter from 3 seconds on page load to 2 seconds - OK
+-Make the AI on website be persistent after a refresh page - OK
+
+7/18/2026
+---------
+-Privacy Policy etc. - OK
+-The scroll down or up button and the scroll bar inside the disclaimers modals is white. Make it with dark cyan and normal cyan. - OK
+-make the policy modals be able to be closed when clicked outside of the modal - OK
+-2FA login with QR code option - OK
+-fix the AI chat expanded window being overlapped with account button top right - OK
+-fix the AI chat expanded window transparency, make it filled - OK
+
+7/19/2026
+---------
+-make AI chat big screen option smaller on the right side, so it doesn't overlap with account button - OK
+-create default colored theme, black if user already uses and white if user already uses that - OK
+
+7/20/2026
+---------
+-rate limiting for login and AI chat - OK
+-test rate limiting - OK
+-rate limiting for login/register works using firebase - OK
+
+7/21/2026
+---------
+-Fix Email Validation Regex Bug - OK
+-Secure 2FA Disable Endpoint - OK
+-rate limits - OK
+
+7/22/2026
+---------
+-continue to ask qwen about more security features - OK
+-test/ for vulnerabilities, find websites that test mine - OK
+
+7/23/2026
+---------
+Finished all this 6 sec systems and tested them
+-Lock Down Firestore Security Rules (The Hidden Danger) - OK
+-Prevent AI-Driven XSS (Cross-Site Scripting) - OK
+-Add "Cloudflare Turnstile" to the Waitlist - OK
+-Fix the "Device ID" Spoofing Loophole - OK
+-Secure the Groq API Key - OK
+-Add Security Headers to Firebase Hosting - OK
+
+7/24/2026
+---------
+-I AM GETTING STUCK AT TURNSTILES FOR A DAY - OK
+
+7/25/2026
+---------
+-fix and finish the waitlist turnstile security system
+-fix waitlist errors from the remains of turnstile/captcha system
+2 days I got very angry and gave up
+
+7/28/2026
+---------
+
+7/30/2026
+---------
+I got stuck at turnstile/captcha for almost a week,
+Because it broke my whole project
+And I barely have strength to continue
+
+
+7/31/2026
+---------
+Create a simple py script that backups my HTML and JS files before each time I deploy - OK
+
+-don't forget to ask Claude AI to check about possible bugs on my web app - OK
+
+9/30/2026
+---------
+-fix some last security holes, to prepare for validating AI system prompts - OK
+-fix Content Security Policy
+Content Security Policy (CSP) is an additional security layer that enables web sites to control browser behavior, creating a safety net that can counter attacks such as cross-site scripting.
+
+Email Security Overview
+No SMTP servers This host doesn't specify any SMTP servers, which probably means that it doesn't receive email. We are unable to evaluate STARTTLS support, TLS, X.509, and DANE configuration.
+
+Server failed to generate a valid responseThe server responded with a 5xx status code, which indicates an internal error.
+
+Multiple headersMultiple X-Frame-Options headers are not allowed. - OK
+
+
+
+
+
+
+
+
+
+
+10/1/2026 - Q4 2026
+---------
+After exactly 2 months pause, I didn't do anything in this day
+
+10/2/2026 - Q4 2026
+---------
+-fix How to make the account button look like be filled with the cyan color and the text color in it with black. - OK
+-fix Also I want it to have low cases text, not "ACCOUNT", but "Account" - OK
+-fix Volumetric DDoS. Partially covered: - OK
+
+10/3/2026 - Q4 2026
+---------
+-make the cloudflare form near waitlist to be cyan, not white with orange - OK
+-fix the website on phones, AI CHAT full screen and account form full screen - OK
+-fix the rotating triangle to be rotated from its middle, and make it not filled - OK
+-fix the logout button in the login form, make its background fill cyan and text black - OK
+-fix account form buttons, login, register and password reset, make the buttons filled with cyan background color when not clicked on them, make the button background black when clicked on - OK
+-fix account form, make all buttons hoverable with cyan darker color - OK
+-when you create new chat in AI chat, make the "this will clear your conversation" message a modal, not the box the browser offers - OK
+
+10/4/2026 - Q4 2026
+---------
+-fix How to swap expand button position with new chat button? - OK
+-fix When I click the registration link in the email I get, the page it sends me to show me it activated, its background white with black text. Make it background black with text cyan - OK
+make it redirect to my website, not the white confirmation page
+-fix moving the X button in account form a little more upward, currently it overlaps with another button top-right of login form
+-fix when I am singed in and I refresh the page, I am still signed in (like it should be) but AI chat says I need to Sign in and verify account
+-make the button 2FA say "2FA enabled" after you enabled it, and say before, when its not enabled yet, "enable 2FA"
+-after singing in, close the login form modal
+-Content-Security-Policy - This policy contains 'unsafe-inline' which is dangerous in the script-src directive. 
+This policy contains 'unsafe-eval' which is dangerous in the script-src directive. 
+-ask opus if the system that auto emails me when usage is over budget for a user, if it currently works
+-do I have this, multiple headers?: Multiple headers Multiple X-Frame-Options headers are not allowed
+
+10/5/2026 - Q4 2026
+---------
+Didn't worked much, not a very good day for work
+
+
+10/6/2026 - Q4 
+---------
+-fix the max message limit from 2000 to 6000 in the AI chat box, if the user uploaded a large business plan, it would have break - OK
+-move the X button in AI chat form position more upwards - OK
+-move the "signed in with x account" text inside the login form modal, from being up and centered, to being down and left aligned - OK
+-build a system that sends me in files each conversation the users have, - OK
+also it must records the actions users take, when users stopped prompting and if and when they returned back
+^ THIS IS FOR VALIDATION PHASE 
+-remove the double click check on account button - OK
+-The quota fix is not in this index.js. Line 792 still falls through to Groq when the quota check errors. The one-line fix from my previous message still needs adding. How to fix this? - OK
+
+10/7/2026 - Q4 
+---------
+This was a bad day, was very angry and destroyed in my mind a few universes
+
+
+10/8/2026
+---------
+-When I expand AI chat form modal, the close X button, allign it vertically with the button left of it (new chat button)
+-Why the fuck when I click on account button top right of my page, sometimes it doesn't open the login/register form modal. Like its bugged. How to fix it?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************DO IN 10/5/2026 - Q4
+********************************************DO ASAP
+----------------------
+----------------------
+Question 2: sending the email links to your site
+Do this only after the deploy above, because steps F, G and K are what make your page able to handle the links.
+
+Go to https://console.firebase.google.com and open the project aries-money-blueprint-30125.
+In the left menu click Authentication (it may be under Build).
+Click the Templates tab at the top.
+Click Email address verification in the list on the left.
+Click the pencil (edit) icon at the top right of the template.
+At the bottom, click Customize action URL.
+Enter https://ariesmoneyblueprint.site and click Save.
+Still in Authentication, open the Settings tab → Authorized domains, and confirm ariesmoneyblueprint.site is listed. Add it if not.
+
+The action URL applies to all email templates, which is why the password-reset handler had to be added first.
+Then test both flows:
+Register a new test account, open the email, and click the link. You should land on your own black-and-cyan site with the account form open and "Email verified successfully!" shown.
+Use Password Reset, open the email, and click the link. You should see the "Choose a new password" box on your site. Save a new password and log in with it.
+----------------------
+----------------------
+********************************************
+********************************************
+
+-make the Tell me. button open mail in browser on windows and the same on map, but its different, not in WindowsMail
+-create a password account somewhere to store Secrets (Groq key, Turnstile key, salt, 2FA key - Type them into your password manager
+-create a system that shuts down usage generally
+-create a system that translates any text in other languages, romainian
+-ask Qwen to find bugs in the code
+-Database Optimization: Set up automated Firestore cleanup scripts to keep costs low.
+-New Features: Add a user dashboard, email notifications, or a public roadmap tracker. a waitlist admin dashboard so you can view/export emails.
+-Make Aries AI think 30 seconds like Qwen does, ask qwen how to make my AI like it to think so complex and that much
+-fix Why sometimes when I click the account button on my website, it doesn't work, it doesn't open the account login modal? - FIND A FIX SOMEHOW
+
+///////////////THIS IS HARD AND TAKES LONG TIME////////////////
+-change email from eflavian to ariesverse13 in every system
+-put the aries logo as the rotating triangle for waitlist
+-make the AI have this message as a sentence out of the first welcome message it gives to any user "Ready when you are"
+-test with multiple AI's Claude, Qwen, ChatGPT. Also with a lot of models (Opus, Astra, Fable, etc.)  
+-fix the db entries to have a name and be organized
+-change color of page when clicking on reset pass and account activation, now the page is white and flashbangs the eyes
+-ask claude how to test my PC for malware that could show hackers API secret keys I have in my code 
+-ask Claude to give me only 30 commands to test security on website
+-make disable 2FA button/system
+-make the account registration link activation redirect be a cyan modal, not some white window error
+-clean the code (parts that are left and they are not finished)
+-ask Claude to find bugs in the code
+-check anti-regression, invariant-testing, correctness-testing, catching edge-cases, offloading mental cognition
+-Database Optimization: Set up automated Firestore cleanup scripts to keep costs low.
+-New Features: Add a user dashboard, email notifications, or a public roadmap tracker. a waitlist admin dashboard so you can view/export emails.
+-Make Aries AI think 30 seconds like Qwen does, ask qwen how to make my AI like it to think so complex and that much
+
+
+-------------------------------------
+-------------------------------------
+-------------------------------------
+
+One real risk to test carefully after this deploys:
+A CSP this specific can break functionality if any domain is missing — unlike the other headers we've added, this one can cause silent failures (a script just won't load, no error banner, page looks broken). After deploying, manually test: the waitlist form + Turnstile widget, the AI chat, login/register, and Google Analytics — one at a time, checking the browser console for any Refused to load/connect CSP violation messages, which will tell you immediately if any domain is still missing.
+-------------------------------------
+
+---If you go to Apple, Google, or any major service and try to reset a password for an email that doesn't exist, they don't say "This email is not registered."
+They say: "If an account exists for this email, a reset link has been sent."
+
+LASTLY
+-look at disney+ TOS for inspiration
+-make Calculated numbers. Break-even, profit per sale, and platform fees computed by your code, not by the model, since models make arithmetic mistakes
+-make Idea ledger. A page listing every idea the user tested, the verdict, and money spent or saved
+-make Ready-to-send test materials. The AI writes the actual survey, outreach message, or listing text for the test
+-make Test tracker. Save the cheap test the AI assigns, with a deadline. When the user returns, the AI asks for the result and updates the verdict
+Your prompt already describes this loop (lines 529 to 532), BUT NOTHING STORES THE TEST
+MAKE A SYSTEM THAT SAVES THE CHEAP TEST
+-ask Claude, maybe add a AI agent that checks for too much user consumption, users that might hurt the web app on purpose - OK
+-A agent that sends on my phone notifications for each problem my AI app has
+-ask claude how to reach certain funds, not investors
+-email when there are too many tries, when I'm attacked
+-make full AI memory system, not just remember last discussion after reloading page
+check how the first one was created
+-NVIDIA NIM implementation
+-'unsafe-inline': yes, you have it, and it's needed because your page uses inline scripts and onclick attributes. It weakens the CSP, but your risk is low because the page writes user and AI text with innerText/textContent. Removing it means moving all JavaScript into a separate file, which is a bigger job you can do later.
+-make a system that helps the user navigate through the website, even if its just the waitlist, 
+give it next steps to do
+-One bonus you might use later: meta-llama/llama-prompt-guard-2-86m is a tiny, very cheap classifier built to detect prompt injection and jailbreak attempts. 
+You could run each user message through it before the main call and reject anything it flags.
+-on virustotal, for others websites 
+-Test website on "is this website ready" type websites
+-Secure source code - Code Obfuscation
+-don't forget to reset all systems to start from zero when making it public
+-add a reminder in some AI messages, to start a new conversation, that using the same conversation consumes more usage
+-don't forget when I'm buying a new phone and change the old one to set email alerts from my web app to new phone
+also move pictures on PC or cloud
+-
+-check the website on phone
+-change web app main email from eflavian@ to ariesverse13@
+-reset waitlist counter
+-contact a lawyer to look over my Terms etc

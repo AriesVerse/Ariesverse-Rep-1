@@ -1,0 +1,15 @@
+----------------------
+How to start AI on my website:
+
+cd C:\Users\aries\Desktop\AriesAI\index
+wrangler pages deploy .
+----
+cd C:\Users\aries\Desktop\AriesAI\functions
+firebase deploy --only functions 
+----------------------
+To see emails in firebase database, click filter and write "email" and ok
+Filters every entry by email so I see them and can find and select them
+---------------------
+How to clear waitlist
+Go in firebase DB and change metadata waitlist count var to 0
+----------

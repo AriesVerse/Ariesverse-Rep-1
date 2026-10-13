@@ -1,0 +1,34 @@
+19:function fail(res, status, publicMessage, err, context = {}) {
+32:function getClientIp(req) {
+46:function normalizeIp(raw) {
+57:function ipv6Prefix(ip) {
+72:function safeKey(value, maxLen = 64) {
+82:function deviceKey(deviceId) {
+93:async function checkRateLimit(db, key, limits, failOpen = true) {
+135:async function logSecurityEvent(db, eventType, details) {
+152:async function updateMfaClaims(uid, patch) {
+165:async function decodeIdToken(idToken) {
+176:async function requireVerifiedUser(db, idToken) {
+204:function setCorsHeaders(res) {
+312:async function requireAuth(db, data, { require2FA = true } = {}) {
+336:async function handleVisit(db, data, ip, res) {
+360:async function handleJoinWaitlist(db, data, ip, res) {
+444:async function handleVerifyToken(data, res) {
+493:function limitFor(key) {
+503:async function consumeAiQuota(db, keys) {
+555:function quotaError(status, message) {
+562:async function getRemainingCount(db, keys) {
+581:function aiQuotaKeys(data, ip) {
+589:async function handleAskAI(db, data, ip, res) {
+692:async function handleGetRemaining(db, data, ip, res) {
+704:function conversationId(data, ip) {
+710:async function handleSaveConversation(db, data, ip, res) {
+758:async function handleLoadConversation(db, data, ip, res) {
+785:async function handleSetup2FA(db, data, ip, res) {
+851:async function handleVerify2FASetup(db, data, ip, res) {
+916:async function handleVerify2FALogin(db, data, ip, res) {
+978:async function handleCheck2FARequired(db, data, ip, res) {
+990:async function handleDisable2FA(db, data, ip, res) {
+1043:async function handleClearMfa(db, data, ip, res) {
+1064:function normalizeEmail(email) { return String(email || "").trim().toLowerCase(); }
+1065:function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }

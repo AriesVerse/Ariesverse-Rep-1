@@ -1,0 +1,12 @@
+Sec 1:
+
+Question 1: Which IPs are hitting rate limits most?
+Filter by eventType == "rate_limit_hit"
+Look at the ip field in details
+If you see the same IP 50+ times, that's an attacker
+Question 2: Are there brute-force login attempts?
+Filter by eventType == "failed_login"
+If you see 100+ failed logins from one IP, they're trying to guess passwords
+Question 3: Are 2FA codes being guessed?
+Filter by eventType == "2fa_failed"
+Multiple failures from the same uid means someone is trying to crack a specific account

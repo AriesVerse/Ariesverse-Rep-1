@@ -1,0 +1,32 @@
+actual temporary free domain website
+https://2740555.playcode.io
+
+Qwen ai browser
+https://chat.qwen.ai/c/879b82cd-1857-4795-aa1c-3800247a8d33
+
+Firebase system
+https://console.firebase.google.com/u/0/project/aries-money-blueprint-30125/authentication/users
+
+ngrok dashboard
+https://dashboard.ngrok.com/get-started/your-authtoken?spm=a2ty_o01.29997173.0.0.68bb55fbJTB3o7
+
+google console
+https://console.cloud.google.com/auth/clients/189763481812-74gt9e96h01m9amjructvov6l28sg7c1.apps.googleusercontent.com?project=aries-money-blueprint&supportedpurview=project
+
+godaddy domain
+https://sso.godaddy.com/?realm=idp&app=account&path=%2Fproducts%3Fgo_redirect%3Ddisabled
+
+cloudflare dashboard overview
+https://dash.cloudflare.com/81c73c49e99f90021e831db5904f082f/ariesmoneyblueprint.site
+
+google analythics
+https://analytics.google.com/analytics/web/#/a161246944p541250250/reports/intelligenthome?params=_u..nav%3Dmaui
+
+playcode io HTML
+https://playcode.io/html-playground--019ead14-7fb2-7238-bae1-4a3e96cc850a
+
+google sheets
+https://docs.google.com/spreadsheets/d/1oNRWd9wT5ppI1h4OiavTMmi7RnscJzO9CmdGVc7YPwI/edit?copiedFromTrash=&gid=0#gid=0
+
+google apps script
+https://script.google.com/u/0/home/projects/1cqP2gJLPS68G0RbJVrhmHyViykimbRj2-2NOjaaecAzFx-CKlNmuhvsW/edit

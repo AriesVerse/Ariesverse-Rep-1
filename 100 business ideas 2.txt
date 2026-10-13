@@ -1,0 +1,190 @@
+Filter applied: the customer is a business that exists only online — a Shopify or Etsy store, a SaaS product, a course creator, a newsletter, a digital product seller, an online agency. No local trade, no physical premises, no bookings for in-person services.
+
+And the same rule as before, since it's the one that matters: the job is simple, the customer is narrow. That's where uniqueness comes from.
+
+100 agents for online-only businesses
+
+E-commerce store operations
+
+Shipping delay email writer — turns a delayed order list into personalized apology emails
+Order status agent — answers "where is my package" from a tracking export
+Return request triage — approve, refuse, or offer a replacement, per policy
+Damaged item claim agent — asks for photos, decides, drafts the response
+Wrong size exchange agent for clothing stores
+Pre-order expectation agent — sets and updates delivery expectations
+Out-of-stock alternative recommender — offers substitutes instead of losing the sale
+Gift wrapping and message agent at checkout
+Wholesale inquiry qualifier for small brands
+Customs and import question agent for cross-border stores
+
+Marketplace sellers (Etsy, Amazon, eBay)
+11. Etsy listing writer for one-of-a-kind items
+12. Etsy tag and keyword agent — 13 tags, no repeats, no stuffing
+13. Amazon bullet point writer per category
+14. Amazon A+ content copy agent
+15. eBay condition description writer for used goods
+16. Product variant description generator from a spreadsheet
+17. Listing refresh agent — rewrites stale listings that stopped selling
+18. Competitor listing gap agent — what they mention that you don't
+19. Handmade custom order intake agent — specs, timeline, deposit
+20. Marketplace policy compliance checker for listing wording
+
+Digital product sellers
+21. Notion template listing and demo copy writer
+22. Preset and LUT pack description writer for photographers
+23. Font and design asset licensing explainer agent
+24. Digital download support agent — "the file won't open"
+25. Template customization guide generator
+26. Bundle page copy writer for digital product creators
+27. Licence tier explainer — personal vs commercial vs extended
+28. Refund policy agent for digital goods (no returns, but goodwill)
+29. Update announcement writer for template buyers
+30. Asset pack changelog and version note writer
+
+SaaS and app companies
+31. Onboarding agent that answers setup questions from your docs
+32. Changelog-to-announcement writer
+33. Feature request triage agent — dedupes and categorizes incoming asks
+34. Bug report intake agent — asks the follow-ups your devs need
+35. App store review reply agent
+36. Cancellation save agent — asks why, offers the right alternative
+37. Integration compatibility agent — "does this work with X"
+38. API documentation Q&A agent for developer tools
+39. Pricing page question agent — which plan do I need
+40. Beta feedback summarizer
+
+Course creators and memberships
+41. Course FAQ agent trained on the curriculum
+42. "Is this course right for me" qualifier agent
+43. Student progress nudge writer — personalized, based on where they stalled
+44. Lesson summary and takeaway generator
+45. Quiz and worksheet generator from lesson transcripts
+46. Cohort welcome and orientation agent
+47. Community rule enforcement explainer
+48. Refund window question agent for course buyers
+49. Certificate and completion query agent
+50. Course upsell path agent — what to take next
+
+Newsletters and content businesses
+51. Subscriber question agent trained on the whole archive
+52. Back-issue finder — "which post covered X"
+53. Sponsor inquiry qualifier — audience stats, rates, availability
+54. Sponsor recap writer after a campaign
+55. Newsletter-to-social repurposer
+56. Reader survey summarizer
+57. Unsubscribe reason analyzer, monthly
+58. Guest post pitch filter — good fit or not
+59. Archive-to-lead-magnet builder
+60. Paid tier "what do I get" explainer agent
+
+Online agencies and freelancers
+61. Project brief builder — turns a vague client message into a scoped brief
+62. Proposal writer from a discovery call transcript
+63. Client update writer — weekly status from a task list
+64. Revision request clarifier — "make it pop" into actual instructions
+65. Scope change explainer — what this costs and why
+66. Client onboarding questionnaire agent
+67. Case study writer from project notes
+68. Portfolio description writer per project type
+69. Upwork/Fiverr proposal writer per job type
+70. Client offboarding and handover doc generator
+
+Support, retention, and churn
+71. First-response agent that only escalates what it can't answer
+72. Support macro generator from past tickets
+73. Ticket theme report — what's actually breaking, monthly
+74. Angry customer de-escalation drafter
+75. Refund vs replacement decision agent, per policy
+76. Support tone matcher — keeps your brand voice across every reply
+77. Multilingual support agent for one-person stores
+78. Repeat complaint detector — same issue, many customers
+79. Post-resolution follow-up agent
+80. Support-to-FAQ pipeline — new questions become documented answers
+
+Listings, SEO, and discoverability
+81. Product page SEO rewriter per niche
+82. Alt text generator for image-heavy stores
+83. Blog-to-product-page internal linking agent
+84. Meta description writer at catalogue scale
+85. Category page copy writer
+86. Keyword cannibalization spotter
+87. Buyer question mining agent — turns real questions into page content
+88. Comparison page generator ("X vs Y")
+89. Seasonal listing rewriter
+90. Product FAQ schema generator
+
+Solo operator admin
+91. Inbox triage agent — what needs a reply today
+92. Collaboration inquiry filter for creators
+93. Cold pitch responder — polite decline or escalate
+94. Weekly recap writer from scattered notes
+95. SOP writer — turns "how I do this" into documentation
+96. Virtual assistant briefing generator
+97. Contractor task spec writer
+98. Customer testimonial request agent, timed to happy moments
+99. Content repurposing scheduler
+100. "What should I do today" agent for overwhelmed solo founders
+
+The best 5
+
+Ranked on: obvious job, used weekly or more, buildable on your current stack, and narrow enough that you're not fighting a funded competitor.
+
+1. Etsy listing writer for one-of-a-kind items (#11)
+
+What it is: the seller uploads photos and a couple of notes. The agent writes the title, description, and tags for that single item. Unlike a normal store, nothing repeats — every piece is unique, so every listing is written from zero.
+
+Why it's strong: this is the highest-frequency job in the list. Someone listing 20–40 items a week spends hours on it, every week, forever. Daily use means very low churn. And it's genuinely underserved — every description tool assumes you're selling a repeatable branded product with existing manufacturer copy. Vintage, handmade, and art sellers have the opposite problem.
+
+Verification is easy: did the listing get written faster and does it rank? No domain expertise required from you.
+
+Risk: price-sensitive customers. €19–29/mo, and speed is the product.
+
+2. Cancellation save agent for SaaS (#36)
+
+What it is: sits on the cancel button. Asks why they're leaving, and based on the answer, offers the right thing — a pause, a downgrade, a discount, or a walkthrough of the feature they never found.
+
+Why it's strong: the value is a number the customer can count. Save 15% of cancellations on €10k MRR and you've made them €1,500/month. That makes €99–199/mo an easy decision. Nobody has to be convinced the problem is real. And the build is simple: a conversation tree with rules for which offer fires when.
+
+Risk: you need customers with enough cancellation volume for the numbers to show. Target businesses above roughly €5k MRR, not brand-new ones.
+
+3. Support-to-FAQ pipeline (#80)
+
+What it is: they connect or export their support inbox. The agent finds the questions people actually ask, writes a documented answer for each, and keeps a chat agent up to date as new questions appear.
+
+Why it's strong: the best self-selling demo here — they upload their own emails and see their own real problems reflected back in thirty seconds. Nobody argues with their own data. It's structurally recurring because new questions arrive every month as products and policies change. And it upsells naturally: free FAQ generation, paid always-on agent.
+
+Risk: you must build the monthly re-scan from day one, or it collapses into a one-time job that can't hold a subscription.
+
+4. Revision request clarifier for agencies and freelancers (#64)
+
+What it is: the client says "make it pop" or "I don't love it." The agent asks the right follow-up questions and returns an actual actionable spec — which element, what direction, what reference.
+
+Why it's strong: unusually specific, near-zero competition, and it hits a pain every designer and developer feels physically. It's used on every single project, which means constant contact with the product. And it produces a document they send to the client, which is stickier than a dashboard.
+
+Risk: freelancers churn faster than companies. Price at €29–49 and sell to agencies rather than solo operators where you can.
+
+5. Proposal writer from a discovery call transcript (#62)
+
+What it is: the agency drops in a call recording transcript. Out comes a structured proposal — scope, deliverables, timeline, assumptions, exclusions.
+
+Why it's strong: proposals take 2–4 hours and directly precede money, so the value is unmistakable. Agencies have budget and don't quibble over €99/mo. Input is stable and simple (a transcript), output is a document. And it improves win rates, which means they attribute revenue to you.
+
+Risk: lower frequency than the others — maybe weekly, not daily. That's fine, but it means retention depends on their deal flow, not yours.
+
+What I'd pick for you
+
+The Etsy listing writer for one-of-a-kind items.
+
+Here's the reasoning, tied to what you specifically need right now.
+
+You told me the earlier ideas were too complex, and you were right to say so. This one has no domain to learn. You don't need to understand fees, tax thresholds, or unit economics. You need to understand what makes a good Etsy listing — and you can learn that in an afternoon by reading twenty successful listings.
+
+It also passes the test I gave you earlier, the one that actually matters. Remember: can you do one, by hand, correctly, before automating anything? Here that means taking one seller's photos and writing the listing yourself. If your version is better and faster than what they wrote, you have a product. That's a test you can run this week, and you can judge the result with your own eyes — no math to defend, no way to be confidently wrong about a number.
+
+Technically it's the smallest build of the five: image and text in, structured text out, on the Firebase stack you already have. No integrations, no OAuth, no financial data. That last point matters more than it sounds — listing photos are far less sensitive than payout exports, so you're not carrying serious security risk while you're still learning what the product is.
+
+And it's the only one of the five used daily. Daily use is what turns a tool into a habit, and habits are what stop people cancelling.
+
+The honest downside: these customers don't have much money, so you'll need volume rather than high prices. That's a real constraint. But for a first product, learning from many small customers beats learning from few large ones — you'll find out what's wrong faster.
+
+Your next step: find five Etsy sellers of vintage, handmade, or art pieces. Write one listing for each, by hand, for free. Watch what they change. What they change is your product spec.
